@@ -1,19 +1,5 @@
 import sys
 
-a = int(input("1st number:"))
-b = int(input('2nd number:'))
-c = int(input('3rd number:'))
-d = int(input('4th number:'))
-
-target = 24
-op_history = []
-num_history = []
-bracket_history = []
-charge = 0
-global_op = ''
-
-numbers = [a,b,c,d]
-
 def to_string(num_history, op_history):
     s = bracket_history[2] + bracket_history[0] + str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + bracket_history[1] + ' ' + op_history[1] + ' ' + str(num_history[2]) + bracket_history[3] + ' ' + op_history[2] + ' ' + str(num_history[3]) 
     return s
@@ -114,6 +100,19 @@ def score_final(result):
 
     return op_vals - diff - charge
 
+target = 24
+op_history = []
+num_history = []
+bracket_history = []
+charge = 0
+
+# input
+numbers = []
+while (len(numbers) < 4):
+    st = input('--> ')
+    for c in st.split():
+        numbers.append(int(c))
+
 # 1st branch
 result_1 = greedy(numbers[0], numbers[1])
 
@@ -130,6 +129,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -142,6 +142,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -155,6 +156,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -167,6 +169,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -198,6 +201,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -210,6 +214,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -223,6 +228,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -235,6 +241,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -266,6 +273,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -278,6 +286,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -291,6 +300,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -303,6 +313,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -334,6 +345,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -346,6 +358,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -359,6 +372,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -371,6 +385,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -402,6 +417,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -414,6 +430,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -427,6 +444,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -439,6 +457,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -470,6 +489,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -482,6 +502,7 @@ if (fork_1 > fork_2):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -495,6 +516,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
@@ -507,6 +529,7 @@ else:
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
+
     else:
         bracket_history.append('')
         bracket_history.append('')
