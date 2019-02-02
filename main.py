@@ -1,10 +1,14 @@
 import sys
 
 def to_string(num_history, op_history):
+    "Build a string from the buffer of number and operator"
+
     s = bracket_history[2] + bracket_history[0] + str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + bracket_history[1] + ' ' + op_history[1] + ' ' + str(num_history[2]) + bracket_history[3] + ' ' + op_history[2] + ' ' + str(num_history[3]) 
     return s
 
 def greedy(num1, num2):
+    "Input 2 operand. Finds the operator that gives local maximum score and returns the local maximum score."
+
     global global_op
 
     add_result = num1 + num2
@@ -46,6 +50,7 @@ def greedy(num1, num2):
         return
 
 def op_prior(op):
+    "Returns the priority of operator"
     if op == '+' or op == '-':
         return 0
 
@@ -57,6 +62,7 @@ def op_prior(op):
         return
 
 def op_value(op):
+    "Returns the value of operator affection to score"
     if op == '+':
         return 5
 
@@ -74,6 +80,7 @@ def op_value(op):
         return
 
 def score(result, op):
+    "Returns the score from a result and an operator"
     diff = abs(result - 24)
 
     if (len(op_history) == 0):
@@ -92,6 +99,7 @@ def score(result, op):
         return score
 
 def score_final(result):
+    "Returns final score of a complete equation."
     diff = abs(result - target)
 
     op_vals = 0
@@ -100,20 +108,20 @@ def score_final(result):
 
     return op_vals - diff - charge
 
-target = 24
-op_history = []
-num_history = []
-bracket_history = []
-charge = 0
+target = 24 # verge
+op_history = [] # operator buffer of an equation
+num_history = [] # number buffer of an equation
+bracket_history = [] # bracket buffer of an equation
+charge = 0 # penalty of using brackets
 
-# input
+# Prompt input
 numbers = []
 while (len(numbers) < 4):
     st = input('--> ')
     for c in st.split():
         numbers.append(int(c))
 
-# 1st branch
+# 1st node
 result_1 = greedy(numbers[0], numbers[1])
 
 op_history.append(global_op)
@@ -185,7 +193,7 @@ num_history.clear() # reset number history
 bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
-# 2nd branch
+# 2nd node
 result_2 = greedy(numbers[0], numbers[2])
 
 op_history.append(global_op)
@@ -257,7 +265,7 @@ num_history.clear() # reset number history
 bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
-# 3rd branch
+# 3rd node
 result_3 = greedy(numbers[0], numbers[3])
 
 op_history.append(global_op)
@@ -329,7 +337,7 @@ num_history.clear() # reset number history
 bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
-# 4th branch
+# 4th node
 result_4 = greedy(numbers[1], numbers[2])
 
 op_history.append(global_op)
@@ -401,7 +409,7 @@ num_history.clear() # reset number history
 bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
-# 5th branch
+# 5th node
 result_5 = greedy(numbers[1], numbers[3])
 
 op_history.append(global_op)
@@ -473,7 +481,7 @@ num_history.clear() # reset number history
 bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
-# 6th branch
+# 6th node
 result_6 = greedy(numbers[2], numbers[3])
 
 op_history.append(global_op)
