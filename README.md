@@ -1,5 +1,4 @@
 # greedy-24game-solver
----
 Simple way to run the program:
 1. Enter `python3 main.py` on Terminal
 2. Assign numbers.
