@@ -33,7 +33,7 @@ _2. We vowed not to provide source code to others._
 
 _3. We vowed not to steal the source code from someone else._
 
-#### Created by
+#### Developers
 * Didik Supriadi - 13517069
 * Muhammad Hendry Prasetya - 13517105
 * Nathaniel Evan Gunawan - 13516055
