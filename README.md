@@ -1,7 +1,7 @@
 ## Links
 * **_[Running the program](https://github.com/didiksupriadi41/greedy-24game-solver#greedy-24game-solver)_**
 * **_[Oath of Allegience](https://github.com/didiksupriadi41/greedy-24game-solver#oath-of-allegience-langid--sumpah-kesetiaan)_**
-* **_[Developers](https://github.com/didiksupriadi41/greedy-24game-solver#created-by)_**
+* **_[Developers](https://github.com/didiksupriadi41/greedy-24game-solver#developers)_**
 
 # greedy-24game-solver
 Simple way to run the program:
