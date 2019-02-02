@@ -8,10 +8,15 @@ d = int(input('4th number:'))
 target = 24
 op_history = []
 num_history = []
+bracket_history = []
 charge = 0
 global_op = ''
 
 numbers = [a,b,c,d]
+
+def to_string(num_history, op_history):
+    s = bracket_history[2] + bracket_history[0] + str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + bracket_history[1] + ' ' + op_history[1] + ' ' + str(num_history[2]) + bracket_history[3] + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+    return s
 
 def greedy(num1, num2):
     global global_op
@@ -122,14 +127,24 @@ fork_2 = greedy(result_1, numbers[3])
 if (fork_1 > fork_2):
     result_1 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
 
     result_1 = greedy(result_1, numbers[3])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
     
     op_history.append(global_op)
     num_history.append(numbers[3])
@@ -137,23 +152,34 @@ if (fork_1 > fork_2):
 else:
     result_1 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[3])
 
     result_1 = greedy(result_1, numbers[2])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
 
 score_1 = score_final(result_1)
-str_1 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_1 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
 # 2nd branch
@@ -169,14 +195,24 @@ fork_2 = greedy(result_2, numbers[3])
 if (fork_1 > fork_2):
     result_2 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
 
     result_2 = greedy(result_2, numbers[3])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[3])
@@ -184,23 +220,34 @@ if (fork_1 > fork_2):
 else:
     result_2 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[3])
 
     result_2 = greedy(result_2, numbers[1])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
 
 score_2 = score_final(result_2)
-str_2 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_2 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
 # 3rd branch
@@ -216,14 +263,24 @@ fork_2 = greedy(result_3, numbers[2])
 if (fork_1 > fork_2):
     result_3 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
 
     result_3 = greedy(result_3, numbers[2])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
@@ -231,23 +288,34 @@ if (fork_1 > fork_2):
 else:
     result_3 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
 
     result_3 = greedy(result_3, numbers[1])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
 
 score_3 = score_final(result_3)
-str_3 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_3 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
 # 4th branch
@@ -263,14 +331,24 @@ fork_2 = greedy(result_4, numbers[3])
 if (fork_1 > fork_2):
     result_4 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
     result_4 = greedy(result_4, numbers[3])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[3])
@@ -278,23 +356,34 @@ if (fork_1 > fork_2):
 else:
     result_4 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[3])
 
     result_4 = greedy(result_4, numbers[0])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
 score_4 = score_final(result_4)
-str_4 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_4 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
 # 5th branch
@@ -310,14 +399,24 @@ fork_2 = greedy(result_5, numbers[2])
 if (fork_1 > fork_2):
     result_5 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
     result_5 = greedy(result_5, numbers[2])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
@@ -325,23 +424,34 @@ if (fork_1 > fork_2):
 else:
     result_5 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[2])
 
     result_5 = greedy(result_5, numbers[0])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
 score_5 = score_final(result_5)
-str_5 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_5 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
 # 6th branch
@@ -357,14 +467,24 @@ fork_2 = greedy(result_6, numbers[1])
 if (fork_1 > fork_2):
     result_6 = fork_1
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
     result_6 = greedy(result_6, numbers[1])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
@@ -372,25 +492,37 @@ if (fork_1 > fork_2):
 else:
     result_6 = fork_2
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[1])
 
     result_6 = greedy(result_6, numbers[0])
     if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+        bracket_history.append('(')
+        bracket_history.append(')')
         charge += 1
+    else:
+        bracket_history.append('')
+        bracket_history.append('')
 
     op_history.append(global_op)
     num_history.append(numbers[0])
 
 score_6 = score_final(result_6)
-str_6 = str(num_history[0]) + ' ' + op_history[0] + ' ' + str(num_history[1]) + ' ' + op_history[1] + ' ' + str(num_history[2]) + ' ' + op_history[2] + ' ' + str(num_history[3]) 
+str_6 = to_string(num_history, op_history)
 
-op_history = [] # reset operator history
-num_history = [] # reset number history
+op_history.clear() # reset operator history
+num_history.clear() # reset number history
+bracket_history.clear() # reset bracket history
 charge = 0 # reset charge
 
+# take max score from all local score
 max_score = max(score_1, score_2, score_3, score_4, score_5, score_6)
 if (max_score == score_1):
     print(str_1)
