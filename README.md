@@ -3,7 +3,7 @@ Simple way to run the program:
 1. Enter `python3 main.py` on Terminal
 2. Enter 4 numbers.
 
-Example 1
+##### Example 1
 ```
 $ python3 main.py 
 --> 1
@@ -13,7 +13,7 @@ $ python3 main.py
 3 * 4 * 2 + 1
 Score:  10
 ```
-Example 2
+##### Example 2
 ```
 $ python3 main.py 
 --> 2 2 2 2
@@ -21,9 +21,11 @@ $ python3 main.py
 Score:  0
 ```
 
-#### Oath of Allegience (_lang:id_ = Sumpah Kesetiaan)
+## Oath of Allegience (_lang:id_ = Sumpah Kesetiaan)
 _1. We vowed to work on this project honestly._
+
 _2. We vowed not to provide source code to others._
+
 _3. We vowed not to steal the source code from someone else._
 
 #### Created by
