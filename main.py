@@ -132,11 +132,13 @@ num_history.append(numbers[0])
 num_history.append(numbers[1])
 
 fork_1 = greedy(result_1, numbers[2])
+temp_op_1 = global_op
 fork_2 = greedy(result_1, numbers[3])
+temp_op_2 = global_op
 
 if (fork_1 > fork_2):
     result_1 = fork_1
-    if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+    if (op_prior(op_history[len(op_history)-1]) < op_prior(temp_op_1)):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
@@ -145,7 +147,7 @@ if (fork_1 > fork_2):
         bracket_history.append('')
         bracket_history.append('')
 
-    op_history.append(global_op)
+    op_history.append(temp_op_1)
     num_history.append(numbers[2])
 
     result_1 = greedy(result_1, numbers[3])
@@ -163,7 +165,7 @@ if (fork_1 > fork_2):
     
 else:
     result_1 = fork_2
-    if (op_prior(op_history[len(op_history)-1]) < op_prior(global_op)):
+    if (op_prior(op_history[len(op_history)-1]) < op_prior(temp_op_2)):
         bracket_history.append('(')
         bracket_history.append(')')
         charge += 1
@@ -172,7 +174,7 @@ else:
         bracket_history.append('')
         bracket_history.append('')
 
-    op_history.append(global_op)
+    op_history.append(temp_op_2)
     num_history.append(numbers[3])
 
     result_1 = greedy(result_1, numbers[2])
@@ -576,4 +578,6 @@ charge = 0 # reset charge
     #print(str_5)
 #elif (max_score == score_6):
     #print(str_6)
+print(str_1)
+print('Result: ', result_1)
 print('Score: ', score_1)
